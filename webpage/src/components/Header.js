@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiCode, FiMenu, FiX } from "react-icons/fi";
 import "./Header.css";
 function Header() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const closeMobileMenu = () => setClick(!false);
+
+  useEffect(() => {
+    if (click) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.background = "rgba(0,0,0,0.5)";
+    } else {
+      document.documentElement.style.overflow = "auto";
+      document.body.style.background = "#fff";
+    }
+  });
   return (
     <div className="header">
       <div className="container">
@@ -16,7 +26,7 @@ function Header() {
           </div>
           <ul className={click ? "menu active" : "menu"}>
             <li className="menu-link" onClick={closeMobileMenu}>
-              <a href="#">Home</a>
+              <a href="#">HOME</a>
             </li>
             <li className="menu-link" onClick={closeMobileMenu}>
               <a href="#">CONTACT</a>
