@@ -11,7 +11,7 @@ function Header() {
         <div className="header-con">
           <div className="logo-container">
             <a href="#">
-              Redev <FiCode />
+              Webpage <FiCode />
             </a>
           </div>
           <ul className={click ? "menu active" : "menu"}>
